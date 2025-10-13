@@ -1,0 +1,331 @@
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+/* 🎨 Warna utama (gradasi lembut pink pastel) */
+:root {
+  --lavender-blush: #FAE8ED;
+  --mimi-pink: #FDD5DF;
+  --pink: #FFC2D1;
+  --cherry-pink: #FFB2C5;
+  --amaranth-pink: #FFA2B9;
+  --text-dark: #25283B;
+}
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    margin: 0;
+    background: #222;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(135deg, var(--mimi-pink), var(--cherry-pink));
+}
+
+.masked-text {
+    font-size: 70px;
+    font-weight: bold;
+    color: transparent;
+    background-image: url('images/IMG_3051.JPG'); 
+    background-size: 200%; /* Enlarged for smooth animation */
+    background-position: 0 50%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-background 5s infinite alternate linear;
+}
+
+@keyframes animate-background {
+    0% {
+        background-position: 0 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ✨ Tampilan umum */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg,
+    var(--lavender-blush),
+    var(--mimi-pink),
+    var(--pink),
+    var(--cherry-pink),
+    var(--amaranth-pink)
+  );
+  overflow-x: hidden;
+}
+
+/* 🌸 Banner utama */
+.banner {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 🔄 Slider 3D */
+.banner .slider {
+  position: absolute;
+  width: clamp(100px, 12vw, 200px);
+  height: clamp(120px, 18vh, 250px);
+  top: 12%;
+  left: 45%;
+  transform: translateX(-50%);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 20s linear infinite;
+  z-index: 2;
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+  }
+}
+
+/* 🖼️ Item di dalam slider */
+.banner .slider .item {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+             translateZ(clamp(180px, 30vw, 550px));
+}
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 🧭 Konten teks utama */
+.banner .content {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1400px, 100vw);
+  padding-bottom: clamp(40px, 8vh, 100px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+
+/* 🧩 Judul besar */
+.banner .content h1 {
+  font-family: 'ICA Rubrik';
+  font-size: clamp(3rem, 9vw, 12rem);
+  line-height: 1em;
+  color: var(--text-dark);
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+}
+.banner .content h1::after {
+  position: absolute;
+  inset: 0;
+  content: attr(data-content);
+  z-index: 2;
+  -webkit-text-stroke: 2px #d2d2d2;
+  color: transparent;
+}
+
+/* ✍️ Nama penulis */
+.banner .content .author {
+  font-family: 'Poppins';
+  text-align: right;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--text-dark);
+  max-width: 220px;
+}
+
+/* 🏷️ Subjudul */
+.banner .content h2 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  margin: 0;
+}
+
+/* 👤 Model di bawah teks */
+.banner .content .model {
+  background-image: url(images/model.png);
+  width: 100%;
+  height: clamp(50vh, 70vh, 80vh);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-size: auto 130%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* 📱 Responsif untuk tablet */
+@media screen and (max-width: 1023px) {
+  .banner .slider {
+    width: clamp(120px, 16vw, 160px);
+    height: clamp(150px, 22vh, 200px);
+  }
+  .banner .slider .item {
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+               translateZ(clamp(150px, 20vw, 300px));
+  }
+  .banner .content h1 {
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  .banner .content .author {
+    color: #fff;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+
+/* 📱 Responsif untuk HP */
+@media screen and (max-width: 767px) {
+  .banner .slider {
+    width: clamp(80px, 20vw, 120px);
+    height: clamp(100px, 25vh, 150px);
+  }
+  .banner .slider .item {
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+               translateZ(clamp(100px, 18vw, 180px));
+  }
+  .banner .content h1 {
+    font-size: clamp(2.5rem, 12vw, 6rem);
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+  .banner .content .author {
+    font-size: 1rem;
+    color: #fff;
+  }
+}
+/* Carousel */
+.carousel-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.carousel {
+  display: flex;
+  gap: 10px;
+  animation: scroll 15s infinite linear;
+}
+
+.carousel img {
+  width: 100%;
+  max-width: 400px;
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Memory Section */
+.memory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 30px;
+  background: var(--pink);
+  width: 80%;
+  transition: transform 0.5s, box-shadow 0.3s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.memory:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.memory img {
+  width: 40%;
+  border-radius: 20px;
+  margin: 0 20px;
+}
+
+.memory p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  flex: 1;
+}
+
+.memory.left img {
+  order: 1;
+}
+
+.memory.right img {
+  order: 2;
+}
+
+/* Add Memory Form */
+.add-memory {
+  background: var(--pink);
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px auto;
+  width: 70%;
+  text-align: center;
+}
+
+.add-memory form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-memory textarea {
+  resize: none;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--cherry-pink);
+  min-height: 80px;
+}
+
+.add-memory button {
+  background: var(--amaranth-pink);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-memory button:hover {
+  background: var(--cherry-pink);
+}
+
+/* Music Button */
+#music-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: var(--amaranth-pink);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 999;
+}

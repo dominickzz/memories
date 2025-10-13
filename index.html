@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #D2D2D2;
+            background-image:
+            repeating-linear-gradient(
+                to right, transparent 0 100px,
+                #25283b22 100px 101px
+            ),
+            repeating-linear-gradient(
+                to bottom, transparent 0 100px,
+                #25283b22 100px 101px
+            );
+        }
+        
+        body::before{
+            position: absolute;
+            width: min(1400px, 90vw);
+            top: 10%;
+            left: 50%;
+            height: 90%;
+            transform: translateX(-50%);
+            content: '';
+            background-image: url(images/bg.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            pointer-events: none;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="banner">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1"><img src="images/dragon_1.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img src="images/dragon_2.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="images/dragon_3.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img src="images/dragon_4.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img src="images/dragon_5.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img src="images/dragon_6.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img src="images/dragon_7.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img src="images/dragon_8.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img src="images/dragon_9.jpg" alt=""></div>
+            <div class="item" style="--position: 10"><img src="images/dragon_10.jpg" alt=""></div>
+        </div>
+        <div class="content">
+            <h1 data-content="HAI SELLA">
+                HAI SELLA
+            </h1>
+            <div class="author">
+                <h2>Dari Acel</h2>
+                <p><b>Kenang-Kenangan Buat Sella</b></p>
+                <p>
+                    Ini gw kumpulin dari temen temen semua 😉
+                </p>
+            </div>
+            <div class="model"></div>
+        </div>
+    </div>
+    <audio id="bg-music" loop autoplay>
+    <source src="music/scenery-of-memories-195693.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Musik control -->
+  <button id="music-toggle">🔊 Matikan Musik</button>
+
+  <header>
+    <h1 class="masked-text">Palancas</h1>
+    <p>Dari Kami Untuk Sella</p>
+  </header>
+
+  <!-- Form upload kenangan -->
+  <section class="add-memory">
+    <h2>Buat Kenangan Baru</h2>
+    <form id="memory-form">
+      <input type="file" id="image-input" accept="image/*" />
+      <textarea id="text-input" placeholder="Tulis kenanganmu di sini..."></textarea>
+      <button type="submit">Tambahkan</button>
+    </form>
+  </section>
+
+  <!-- Carousel -->
+  <section class="carousel-container">
+    <div class="carousel">
+      <img src="images/k1.png" alt="Kenangan 1">
+      <img src="images/k2.jpg" alt="Kenangan 2">
+      <img src="images/k3.jpg" alt="Kenangan 3">
+      <img src="images/k4.jpg" alt="Kenangan 4">
+      <img src="images/k5.jpg" alt="Kenangan 5">
+      <img src="images/k6.jpg" alt="Kenangan 6">
+      <img src="images/k7.jpg" alt="Kenangan 7">
+      <img src="images/k8.jpg" alt="Kenangan 8">
+      <img src="images/k9.jpg" alt="Kenangan 9">
+      <img src="images/k10.jpg" alt="Kenangan 10">
+    </div>
+  </section>
+
+  <!-- Container kenangan -->
+  <main id="memories-container">
+    <div class="memory left">
+      <img src="images/IMG_3004.JPG" alt="Dari Sammy">
+      <p>Haloo sella, moga kabar lu baik baik aja ye, semangat kuliah di malay, semoga dapet lingkungan yang ngesupport lu selama disana. stay safe
+        
+        -Sammy
+      </p>
+    </div>
+    <div class="memory right">
+      <p>Hai sell, gw janji kan mau bikinin tulisan, buat lu gw bikin yang spesial deh,
+        -Acel
+      </p>
+      <img src="images/IMG_3051.JPG" alt="Dari Acel">
+    </div>
+    <div class="memory left 2">
+      <img src="images/IMG_3551.JPG" alt="Dari Mandy">
+      <p>Thank you for being a loyal member of Questers! Jangan lupa sama aku ya adik 🥹🫶 Good luck and love you 3000!
+        -Mandy
+      </p>
+    </div>
+    <div class="memory right 2">
+      <p>Kesan:
+        Pertama kali ketemu Cella tuh orangnya pendiem, kyk susah deket sama orang. Tapi pas udh rada lama, ternyata orangnya sedikit manja, trus suka tidur & makan.
+
+        Pesan:
+        Cella, just be yourself there. Whenever you feel down or have any problems, you can talk to us, okehh? We’re here for you.
+      -Maxwell
+    </p>
+      <img src="images/IMG_3579.JPG" alt="Dari Maxwell">
+    </div>
+    <div class="memory left 3">
+      <img src="images/IMG_3583.JPG" alt="Dari Jo">
+      <p>hi cella, Best of luck to your study in malay. I hope you can overcome all the Hardships and soar high above and beyond my expectations. See you again, aint gonna miss you till you become fineshyt.
+        -Jo
+      </p>
+    </div>
+    <div class="memory right 3">
+      <p>"Goodluck buat kuliah in malay sella!!! Keep praying to God that you can go through college with no problems and semoga kita bisa kumpul lagi semua pas balik ke Indo wkwkwk"
+        -Onel
+      </p>
+      <img src="images/IMG_3655.JPG" alt="Dari Onel">
+    </div>
+    <div class="memory left 4">
+      <img src="images/IMG_3718.JPG" alt="Dari Ratu">
+      <p>Hai Sella, semoga kamu betah dan enjoy di Malaysia yaa. Jangan lupa jaga kesehatan dan tetap semangat dalam menjalani perkuliahan. Semoga semua impian dan cita-citamu tercapai. Good luck and take care!Selamat jadi anak Malaysia sementara! 🇲🇾🫶🏻
+Jangan sampe pulang-pulang logatnya berubah:
+“Jom makan dulu weh, nanti perut mogok baru tahu!” 😂
+Belajar yang rajin, jangan belajar cara ngomong kayak Upin & Ipin je! 😝😄
+        -Ratu
+      </p>
+    </div>
+    <div class="memory right 4">
+      <p>Hai , Partner best sharing gua. gak kerasa waktu berjalan cepet dari pas WE-34 masih sharing sekarang lu udh mau ke Malaysia aja 🥲. Sukses yaa cel di malaysia, sukses buatt kuliah lu dan apapun yang lu lakukan disana nanti. Jangan lupain Quester yaa cel. nanti kita jalan jalann lagii klo lu balikk!! Sukses and GBU cel😇😃😃🙏🆙🆙
+        -Bryan
+      </p>
+      <img src="images/IMG_1491.JPG" alt="Dari Bryan">
+    </div>
+    <div class="memory left 5">
+      <img src="images/IMG_3754.JPG" alt="Dari Liven">
+      <p>hi kakakkkkk, semangat yaa kuliahnyaa 🫰🏻. aku bersyukur karena bisa ketemu dan kenalan sm kakak di tahun inii, bisa wea bareng, bisa hangout bareng, bisa ngabisin waktu bareng2 deh pokoknya 💓. semoga nanti kuliahnya sukses teruss, dan bisa mencapai cita-cita yang diinginkann. goodlucckkkk and see u next yeaarrrrr 👋🏻😚💐☀
+        -Liven
+      </p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
