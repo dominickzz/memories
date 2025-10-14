@@ -277,44 +277,6 @@ body {
   order: 2;
 }
 
-/* Add Memory Form */
-.add-memory {
-  background: var(--pink);
-  padding: 30px;
-  border-radius: 20px;
-  margin: 30px auto;
-  width: 70%;
-  text-align: center;
-}
-
-.add-memory form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.add-memory textarea {
-  resize: none;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid var(--cherry-pink);
-  min-height: 80px;
-}
-
-.add-memory button {
-  background: var(--amaranth-pink);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.add-memory button:hover {
-  background: var(--cherry-pink);
-}
-
 /* Music Button */
 #music-toggle {
   position: fixed;
