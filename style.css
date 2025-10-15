@@ -237,38 +237,6 @@ body {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
-.Video {
-  display: flex;
-  align-items: center;
-  justify-content: space-beetween;
-  padding: 40px;
-  max-width: 1000px;
-  margin: auto;
-  gap: 40px;
-}
-.Video .text p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.5;
-}
-.Video .video {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2)
-}
-@media (max-width: 768px) {
-  .Video {
-    flex-direction: column;
-    text-align: center;
-  }
-  .Video .video {
-    max-width: 100%;
-  }
-}
 /* Memory Section */
 .memory {
   display: flex;
@@ -307,6 +275,50 @@ body {
 
 .memory.right img {
   order: 2;
+}
+
+/* reuse existing .memory rules you already have (keamanan: jangan duplicate) */
+/* --- tambahan/penyesuaian untuk video --- */
+
+/* Media wrapper (untuk gambar atau video) */
+.memory .media {
+  width: 40%;            /* sama dengan .memory img width:40% */
+  max-width: 420px;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+}
+
+/* Video element style supaya terlihat seperti image di desain */
+.memory .media video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;           /* match .memory img border-radius */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  object-fit: cover;             /* isi kotak proporsional */
+  background: #000;              /* saat belum load */
+}
+
+/* Jika Anda ingin memastikan teks dan media urut sama seperti .memory.right */
+.memory.right .media { order: 2; }
+.memory.left .media  { order: 1; }
+
+/* Responsive: stack vertically on small screens */
+@media (max-width: 768px) {
+  .memory {
+    flex-direction: column;
+    text-align: center;
+    width: 92%;
+    padding: 24px;
+  }
+  .memory .media {
+    width: 100%;
+    max-width: none;
+    margin-top: 18px;
+  }
 }
 
 /* Music Button */
